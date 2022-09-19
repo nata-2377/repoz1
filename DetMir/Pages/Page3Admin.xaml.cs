@@ -1,5 +1,4 @@
-﻿using DetMir.Pages;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,25 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-
-namespace DetMir
+namespace DetMir.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Page3Admin.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Page3Admin : Page
     {
-        public MainWindow()
+        public Page3Admin()
         {
             InitializeComponent();
-            ConnectOdb.ConObj = new variant3Entities();
-            FrameObj.MainFrame = frmMain;
-            frmMain.Navigate(new PageAvtoriz());
-        }
-
-        private void btnExit_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }

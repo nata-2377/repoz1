@@ -6,7 +6,7 @@
         Icon="./Resources/icon.ico"
         xmlns:local="clr-namespace:DetMir"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="OOO Детский мир " Height="450" Width="800" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.2*"></RowDefinition>
@@ -18,16 +18,15 @@
             <Image Source=".//Resources/logo.png" HorizontalAlignment="Left" Margin="45,0,0,0" ></Image>
             <TextBlock Text="ООО 'ДЕТСКИЙ МИР'" FontSize="25" FontFamily="Candara" Margin="120,0,0,0" VerticalAlignment="Center" >
             </TextBlock>
-            <Button x:Name="btnBack" Content="Назад"  FontSize="17" Background="#B3F4E9" FontFamily="Tahoma" Width="130" 
-                    Height="30" Margin="140,0,0,0" />
+            <Button x:Name="btnBack" Content="Назад" Margin="140,0,0,0"  Style="{StaticResource mainBtn}"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Background="#A5E887" Orientation="Horizontal" Margin="0,0,-0.4,0" >
-            <Button x:Name="btnExit" Content="Выход" Background="#B3F4E9" FontFamily="Tahoma"  Width="130" Height="30" Margin="600,0,0,0" />
+            <Button x:Name="btnExit" Content="Выход" Margin="600,0,0,0" Style="{StaticResource mainBtn}" Click="btnExit_Click" />
         </StackPanel>
         <StackPanel VerticalAlignment="Center" Margin="0,0,-0.4,0"  Grid.Row="1">
             <Image Source=".//Resources/logo.png"
        Opacity="0.2" Width="300"     />
         </StackPanel>
-
+        <Frame  x:Name="frmMain" Grid.Row="1" NavigationUIVisibility="Hidden" ></Frame>
     </Grid>
 </Window>
