@@ -1,4 +1,4 @@
-﻿<Page x:Class="DetMir.Pages.Page1Guest"
+﻿<Page x:Name="Page1Guest1" x:Class="DetMir.Pages.Page1Guest"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,6 +9,13 @@
       Title="Page1Guest">
 
     <Grid>
-        
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
+                <Button x:Name="btn2" Content="Кнопка гостя" Background="#B3F4E9" FontFamily="Tahoma"  Width="130" Height="30" Margin="100,0,0,0" />
+            </StackPanel>
+
+        </StackPanel>
     </Grid>
 </Page>

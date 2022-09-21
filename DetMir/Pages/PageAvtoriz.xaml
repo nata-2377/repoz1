@@ -9,13 +9,37 @@
       Title="PageAvtoriz">
 
     <Grid>
-        <StackPanel HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Orientation="Horizontal">
-            <StackPanel Orientation="Vertical">
-                <Button x:Name="btn1" Content="Кнопка" Background="#B3F4E9" FontFamily="Tahoma"  Width="130" Height="30" Margin="600,0,0,0" />
-            </StackPanel>
-            
-            </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="1"  >
+            <Label Content="Авторизация" HorizontalAlignment="Center"></Label>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Label Content="Логин" HorizontalAlignment="Right" ></Label>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="0"  >
+            <Label Content="Пароль" HorizontalAlignment="Right"></Label>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1" >
+            <TextBox x:Name="tbLog"></TextBox>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="1" >
+            <TextBox x:Name="tbPass"></TextBox>
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="1" >
+            <Button x:Name="BtnPerson" Content="Войти" Style="{StaticResource mainBtn}"/>
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="2" >
+            <Button x:Name="BtnGuest" Content="Войти как гость" Style="{StaticResource mainBtn}" Click="BtnGuest_Click"/>
+        </Grid>
     </Grid>
 </Page>

@@ -9,6 +9,6 @@ namespace DetMir
 {
     class FrameObj
     {
-        public static Frame MainFrame;
+        public static Frame MainFrame { get; set; }
     }
 }

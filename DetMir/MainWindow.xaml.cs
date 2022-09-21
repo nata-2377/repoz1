@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DetMir;
 
 
 namespace DetMir
@@ -26,13 +27,38 @@ namespace DetMir
         {
             InitializeComponent();
             ConnectOdb.ConObj = new variant3Entities();
-            FrameObj.MainFrame = frmMain;
-            frmMain.Navigate(new PageAvtoriz());
+            FrameObj.MainFrame = FrmMain;
+            FrmMain.Navigate(new PageAvtoriz());
         }
 
-        private void btnExit_Click(object sender, RoutedEventArgs e)
+        private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Вы действительно хотите закрыть окно?",
+         "Закрытие приложения",
+         MessageBoxButton.YesNo,
+         MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                this.Close();
+            }
+
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            FrameObj.MainFrame.GoBack();
+        }
+
+        private void FrmMain_ContentRendered(object sender, EventArgs e)
+        {
+            if (FrmMain.CanGoBack)
+            {
+                BtnBack.Visibility = Visibility.Visible;
+             }
+            else
+            {
+                BtnBack.Visibility = Visibility.Hidden;
+            }
         }
     }
+
 }

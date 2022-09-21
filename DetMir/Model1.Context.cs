@@ -17,6 +17,8 @@ namespace DetMir
     
     public partial class variant3Entities : DbContext
     {
+        private static variant3Entities _context;
+
         public variant3Entities()
             : base("name=variant3Entities")
         {

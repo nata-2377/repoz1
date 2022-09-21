@@ -1,4 +1,4 @@
-﻿<Page x:Class="DetMir.Pages.Page3Admin"
+﻿<Page x:Name="Page3Admin1" x:Class="DetMir.Pages.Page3Admin"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,6 +9,38 @@
       Title="Page3Admin">
 
     <Grid>
-        
+        <StackPanel HorizontalAlignment="Right">
+            <TextBlock Text="Вы вошли как администратор    " FontSize="20" />
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
+                <Button 
+                    Content="Сотрудники"
+                    Name="BtnSotrudnic"
+                    Margin="5"
+                    Style="{StaticResource mainBtn}"/>
+                <Button 
+                    Content="Товары"
+                    Name="BtnTovar"
+                    Margin="5"
+                    Style="{StaticResource mainBtn}"/>
+                
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Button 
+                    Content="Клиенты"
+                    Name="BtnClient"
+                    Margin="5"
+                    Style="{StaticResource mainBtn}"/>
+                <Button 
+                    Content="Заказы"
+                    Name="BtnZakaz"
+                    Margin="5"
+                    Style="{StaticResource mainBtn}"/>
+                            </StackPanel>
+        </StackPanel>
+
     </Grid>
 </Page>

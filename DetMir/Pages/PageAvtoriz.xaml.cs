@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace DetMir.Pages
 {
     /// <summary>
@@ -23,6 +24,18 @@ namespace DetMir.Pages
         public PageAvtoriz()
         {
             InitializeComponent();
+          
+            
+        }
+
+        private void btn1_Click(object sender, RoutedEventArgs e)
+        {
+            FrameObj.MainFrame.Navigate(new Page3Admin());
+        }
+
+        private void BtnGuest_Click(object sender, RoutedEventArgs e)
+        {
+            FrameObj.MainFrame.Navigate(new Page1Guest());
         }
     }
 }
