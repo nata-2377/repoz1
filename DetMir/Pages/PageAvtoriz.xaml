@@ -33,10 +33,10 @@
             <TextBox x:Name="tbLog"></TextBox>
         </Grid>
         <Grid Grid.Row="2" Grid.Column="1" >
-            <TextBox x:Name="tbPass"></TextBox>
-        </Grid>
+            <PasswordBox x:Name="PbPass" PasswordChar="*" Width="200" Height="30" />
+         </Grid>
         <Grid Grid.Row="3" Grid.Column="1" >
-            <Button x:Name="BtnPerson" Content="Войти" Style="{StaticResource mainBtn}"/>
+            <Button x:Name="BtnPerson" Content="Войти" Style="{StaticResource mainBtn}" Click="BtnPerson_Click"/>
         </Grid>
         <Grid Grid.Row="3" Grid.Column="2" >
             <Button x:Name="BtnGuest" Content="Войти как гость" Style="{StaticResource mainBtn}" Click="BtnGuest_Click"/>
