@@ -17,23 +17,11 @@ namespace DetMir
     
     public partial class variant3Entities : DbContext
     {
-        private static variant3Entities _context;
-
         public variant3Entities()
             : base("name=variant3Entities")
         {
         }
-
-        public static variant3Entities GetContext()
-        {
-            if (_context == null)
-                _context = new variant3Entities();
-
-            return _context;
-        }
-
-
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

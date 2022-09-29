@@ -24,9 +24,14 @@ namespace DetMir.Pages
         public PageAvtoriz()
         {
             InitializeComponent();
-          
-            
+
+
         }
+
+        public static System.Windows.MessageBoxResult Show(string messageBoxText,
+             string caption, System.Windows.MessageBoxButton button, System.Windows.MessageBoxImage icon)
+        { return new MessageBoxResult(); }
+
 
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
@@ -38,8 +43,9 @@ namespace DetMir.Pages
             FrameObj.MainFrame.Navigate(new Page1Guest());
         }
 
-        private void BtnPerson_Click(object sender, RoutedEventArgs e)
+                private void BtnPerson_Click(object sender, RoutedEventArgs e)
         {
+            
             try
             {
                 var userObj = ConnectOdb.ConObj.Users.FirstOrDefault(x => x.login == tbLog.Text && x.password == PbPass.Password);
@@ -49,15 +55,22 @@ namespace DetMir.Pages
                 }
                 else
                 {
-                    switch (userObj.role)
+                    switch (userObj.role1)
                     {
-                        case 1: MessageBox.Show("Добро пожаловать. Вы авторизировались как администратор  " + userObj.FIO, "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                        case 1:
+                            MessageBoxResult result = MessageBox.Show("Добро пожаловать. Вы авторизировались как администратор  " + userObj.FIO, "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                            if (result == MessageBoxResult.OK)
+                                FrameObj.MainFrame.Navigate(new Page3Admin());
                             break;
                         case 2:
-                            MessageBox.Show("Добро пожаловать. Вы авторизировались как менеджер  " + userObj.FIO, "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBoxResult result1 = MessageBox.Show("Добро пожаловать. Вы авторизировались как менеджер  " + userObj.FIO, "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                            if (result1 == MessageBoxResult.OK)
+                                FrameObj.MainFrame.Navigate(new Page4Manadzer());
                             break;
                         case 3:
-                            MessageBox.Show("Добро пожаловать. Вы авторизировались как пользователь  " + userObj.FIO, "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBoxResult result2 = MessageBox.Show("Добро пожаловать. Вы авторизировались как пользователь  " + userObj.FIO, "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                            if (result2 == MessageBoxResult.OK)
+                                FrameObj.MainFrame.Navigate(new Page2Client());
                             break;
                         default:
                             MessageBox.Show("Данные не обнаружены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -71,6 +84,11 @@ namespace DetMir.Pages
 
                 MessageBox.Show("Ошибка" + Ex.Message.ToString() + "Критическая ошибка работы приложения!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+        }
+
+        private void BtnReg_Click(object sender, RoutedEventArgs e)
+        {
+            FrameObj.MainFrame.Navigate(new PageRegistr());
         }
     }
 }

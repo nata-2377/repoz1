@@ -21,7 +21,7 @@ namespace DetMir
         }
     
         public int ID { get; set; }
-        public string role1 { get; set; }
+        public string role2 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Users> Users { get; set; }

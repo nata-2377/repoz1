@@ -41,5 +41,8 @@
         <Grid Grid.Row="3" Grid.Column="2" >
             <Button x:Name="BtnGuest" Content="Войти как гость" Style="{StaticResource mainBtn}" Click="BtnGuest_Click"/>
         </Grid>
+        <Grid Grid.Row="3" Grid.Column="0" >
+            <Button x:Name="BtnReg" Content="Регистрация" Style="{StaticResource mainBtn}" Click="BtnReg_Click"/>
+        </Grid>
     </Grid>
 </Page>
