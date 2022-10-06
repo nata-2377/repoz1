@@ -13,35 +13,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Threading;
 
 namespace DetMir.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для Page3Admin.xaml
+    /// Логика взаимодействия для PageEditNew.xaml
     /// </summary>
-    public partial class Page3Admin : Page
+    public partial class PageEditNew : Page
     {
-        
-
-        public Page3Admin()
+        public PageEditNew()
         {
             InitializeComponent();
-          
+            ConnectOdb.ConObj.Manufacturer.Load();
+            comboBox2.ItemsSource = ConnectOdb.ConObj.Manufacturer.Local;
+            ConnectOdb.ConObj.Provider.Load();
+            comboBox3.ItemsSource = ConnectOdb.ConObj.Provider.Local;
 
-
-
-
-        }
-
-        private void BtnAddProduct_Click(object sender, RoutedEventArgs e)
-        {
-            FrameObj.MainFrame.Navigate(new PageAddProduct());
-        }
-
-        private void BtnProduct_Click(object sender, RoutedEventArgs e)
-        {
-            FrameObj.MainFrame.Navigate(new PageProduct());
         }
     }
 }

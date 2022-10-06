@@ -30,7 +30,7 @@
             <Label Content="Пароль" HorizontalAlignment="Right"></Label>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="1" >
-            <TextBox x:Name="tbLog"></TextBox>
+            <TextBox x:Name="tbLog" Style="{StaticResource tbBox}"></TextBox>
         </Grid>
         <Grid Grid.Row="2" Grid.Column="1" >
             <PasswordBox x:Name="PbPass" PasswordChar="*" Width="200" Height="30" />

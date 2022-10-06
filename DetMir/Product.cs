@@ -26,20 +26,20 @@ namespace DetMir
         public string unit { get; set; }
         public Nullable<float> stoimost { get; set; }
         public Nullable<float> max_discount { get; set; }
-        public Nullable<int> manufacturer { get; set; }
-        public Nullable<int> provider { get; set; }
+        public Nullable<int> manufacturer2 { get; set; }
+        public Nullable<int> provider2 { get; set; }
         public Nullable<int> category_number { get; set; }
         public Nullable<float> discount { get; set; }
         public Nullable<int> quantity_in_stock { get; set; }
         public string description { get; set; }
-        public byte[] photo { get; set; }
+        public string photo { get; set; }
     
-        public virtual Manufacturer Manufacturer1 { get; set; }
+        public virtual Manufacturer Manufacturer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderComposition> OrderComposition { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Placement> Placement { get; set; }
         public virtual ProductCategory ProductCategory { get; set; }
-        public virtual Provider Provider1 { get; set; }
+        public virtual Provider Provider { get; set; }
     }
 }

@@ -10,7 +10,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Manufacturer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Manufacturer1" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -65,13 +65,13 @@
           <Property Name="unit" Type="nchar" MaxLength="10" />
           <Property Name="stoimost" Type="real" />
           <Property Name="max_discount" Type="real" />
-          <Property Name="manufacturer" Type="int" />
-          <Property Name="provider" Type="int" />
+          <Property Name="manufacturer2" Type="int" />
+          <Property Name="provider2" Type="int" />
           <Property Name="category_number" Type="int" />
           <Property Name="discount" Type="real" />
           <Property Name="quantity_in_stock" Type="int" />
           <Property Name="description" Type="nvarchar(max)" />
-          <Property Name="photo" Type="image" />
+          <Property Name="photo" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="ProductCategory">
           <Key>
@@ -85,7 +85,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="provider" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="provider1" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -203,7 +203,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Product">
-              <PropertyRef Name="manufacturer" />
+              <PropertyRef Name="manufacturer2" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -227,7 +227,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Product">
-              <PropertyRef Name="provider" />
+              <PropertyRef Name="provider2" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -387,18 +387,18 @@
           <Property Name="unit" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="stoimost" Type="Single" />
           <Property Name="max_discount" Type="Single" />
-          <Property Name="manufacturer" Type="Int32" />
-          <Property Name="provider" Type="Int32" />
+          <Property Name="manufacturer2" Type="Int32" />
+          <Property Name="provider2" Type="Int32" />
           <Property Name="category_number" Type="Int32" />
           <Property Name="discount" Type="Single" />
           <Property Name="quantity_in_stock" Type="Int32" />
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="Manufacturer1" Relationship="Self.FK_Product_Manufacturer" FromRole="Product" ToRole="Manufacturer" />
+          <Property Name="photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Product_Manufacturer" FromRole="Product" ToRole="Manufacturer" />
           <NavigationProperty Name="OrderComposition" Relationship="Self.FK_OrderComposition_Product" FromRole="Product" ToRole="OrderComposition" />
           <NavigationProperty Name="Placement" Relationship="Self.FK_Placement_Product" FromRole="Product" ToRole="Placement" />
           <NavigationProperty Name="ProductCategory" Relationship="Self.FK_Product_ProductCategory" FromRole="Product" ToRole="ProductCategory" />
-          <NavigationProperty Name="Provider1" Relationship="Self.FK_Product_Provider" FromRole="Product" ToRole="Provider" />
+          <NavigationProperty Name="Provider" Relationship="Self.FK_Product_Provider" FromRole="Product" ToRole="Provider" />
         </EntityType>
         <EntityType Name="ProductCategory">
           <Key>
@@ -486,7 +486,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Product">
-              <PropertyRef Name="manufacturer" />
+              <PropertyRef Name="manufacturer2" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -572,7 +572,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Product">
-              <PropertyRef Name="provider" />
+              <PropertyRef Name="provider2" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -705,7 +705,7 @@
             <EntityTypeMapping TypeName="variant3Model.Manufacturer">
               <MappingFragment StoreEntitySet="Manufacturer">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Manufacturer1" ColumnName="Manufacturer" />
+                <ScalarProperty Name="Manufacturer1" ColumnName="Manufacturer1" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -739,8 +739,8 @@
                 <ScalarProperty Name="unit" ColumnName="unit" />
                 <ScalarProperty Name="stoimost" ColumnName="stoimost" />
                 <ScalarProperty Name="max_discount" ColumnName="max_discount" />
-                <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
-                <ScalarProperty Name="provider" ColumnName="provider" />
+                <ScalarProperty Name="manufacturer2" ColumnName="manufacturer2" />
+                <ScalarProperty Name="provider2" ColumnName="provider2" />
                 <ScalarProperty Name="category_number" ColumnName="category_number" />
                 <ScalarProperty Name="discount" ColumnName="discount" />
                 <ScalarProperty Name="quantity_in_stock" ColumnName="quantity_in_stock" />
@@ -761,7 +761,7 @@
             <EntityTypeMapping TypeName="variant3Model.Provider">
               <MappingFragment StoreEntitySet="Provider">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="provider1" ColumnName="provider" />
+                <ScalarProperty Name="provider1" ColumnName="provider1" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

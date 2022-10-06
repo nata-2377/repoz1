@@ -24,8 +24,8 @@ namespace DetMir.Pages
         public PageAvtoriz()
         {
             InitializeComponent();
-
-
+            
+            
         }
 
         public static System.Windows.MessageBoxResult Show(string messageBoxText,
@@ -36,6 +36,7 @@ namespace DetMir.Pages
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
             FrameObj.MainFrame.Navigate(new Page3Admin());
+            Users users1 = new Users();
         }
 
         private void BtnGuest_Click(object sender, RoutedEventArgs e)
@@ -60,7 +61,8 @@ namespace DetMir.Pages
                         case 1:
                             MessageBoxResult result = MessageBox.Show("Добро пожаловать. Вы авторизировались как администратор  " + userObj.FIO, "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                             if (result == MessageBoxResult.OK)
-                                FrameObj.MainFrame.Navigate(new Page3Admin());
+                            {
+                                FrameObj.MainFrame.Navigate(new Page3Admin()); }
                             break;
                         case 2:
                             MessageBoxResult result1 = MessageBox.Show("Добро пожаловать. Вы авторизировались как менеджер  " + userObj.FIO, "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
