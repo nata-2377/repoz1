@@ -42,5 +42,10 @@ namespace DetMir.Pages
             ConnectOdb.ConObj.Manufacturer.Load();
           
         }
+
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            FrameObj.MainFrame.Navigate(new PageEditNew((sender as Button).DataContext as Product));
+        }
     }
 }

@@ -27,6 +27,6 @@
             <Image Source=".//Resources/logo.png"
        Opacity="0.2" Width="300"     />
         </StackPanel>
-        <Frame ContentRendered="FrmMain_ContentRendered" x:Name="FrmMain" Grid.Row="1" NavigationUIVisibility="Hidden" ></Frame>
+        <Frame x:Name="FrmMain" ContentRendered="FrmMain_ContentRendered"  Grid.Row="1" NavigationUIVisibility="Hidden" ></Frame>
     </Grid>
 </Window>

@@ -27,13 +27,10 @@ namespace DetMir.Pages
         public Page3Admin()
         {
             InitializeComponent();
-          
 
+                 }
 
-
-
-        }
-
+       
         private void BtnAddProduct_Click(object sender, RoutedEventArgs e)
         {
             FrameObj.MainFrame.Navigate(new PageAddProduct());

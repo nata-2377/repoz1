@@ -24,8 +24,7 @@ namespace DetMir.Pages
         public PageAvtoriz()
         {
             InitializeComponent();
-            
-            
+                    
         }
 
         public static System.Windows.MessageBoxResult Show(string messageBoxText,
@@ -33,12 +32,7 @@ namespace DetMir.Pages
         { return new MessageBoxResult(); }
 
 
-        private void btn1_Click(object sender, RoutedEventArgs e)
-        {
-            FrameObj.MainFrame.Navigate(new Page3Admin());
-            Users users1 = new Users();
-        }
-
+       
         private void BtnGuest_Click(object sender, RoutedEventArgs e)
         {
             FrameObj.MainFrame.Navigate(new Page1Guest());
@@ -50,6 +44,7 @@ namespace DetMir.Pages
             try
             {
                 var userObj = ConnectOdb.ConObj.Users.FirstOrDefault(x => x.login == tbLog.Text && x.password == PbPass.Password);
+
                 if (userObj==null)
                 {
                     MessageBox.Show("Такого пользователя не существует", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -62,7 +57,9 @@ namespace DetMir.Pages
                             MessageBoxResult result = MessageBox.Show("Добро пожаловать. Вы авторизировались как администратор  " + userObj.FIO, "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                             if (result == MessageBoxResult.OK)
                             {
-                                FrameObj.MainFrame.Navigate(new Page3Admin()); }
+                                Users users = userObj;
+                                FrameObj.MainFrame.Navigate(new Page3Admin());
+                                   }
                             break;
                         case 2:
                             MessageBoxResult result1 = MessageBox.Show("Добро пожаловать. Вы авторизировались как менеджер  " + userObj.FIO, "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
