@@ -10,78 +10,122 @@
 
     <Grid>
         <ScrollViewer>
-            <StackPanel Orientation="Vertical"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center">
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <TextBlock Text="Артикул: "
-                           Width="160" FontSize="17"/>
-                    <TextBox x:Name="articleTX" Width="180"
-                         FontSize="17"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <TextBlock Text="Наименование: "
-                           Width="160" FontSize="17"/>
-                    <TextBox x:Name="titleTX" Width="180"
-                         FontSize="17"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <TextBlock Text="Единица измерения:  "
-                           Width="160" FontSize="17"/>
+            <DockPanel>
+                <DockPanel DockPanel.Dock="Left" Background="Azure">
+                    <StackPanel Orientation="Vertical"   HorizontalAlignment="Center" VerticalAlignment="Top">
 
-                    <ComboBox x:Name="typeEdIzmCB" 
-                          FontSize="17"
-                          Style="{StaticResource mainCombo }">
-                        <ComboBoxItem Content="уп." HorizontalAlignment="Left" />
-                        <ComboBoxItem Content="шт." HorizontalAlignment="Left"/>
-                    </ComboBox>
-                </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5,5,0,5">
+                            <TextBlock Text="Артикул: " Width="200" FontSize="17"/>
+                        </StackPanel>
 
+                        <StackPanel Orientation="Horizontal" Margin="5,7,0,5">
+                            <TextBlock Text="Наименование: " Width="200" FontSize="17"/>
+                        </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <TextBlock Text="Стоимость: "
-                           Width="160" FontSize="17" TextWrapping="Wrap"/>
-                    <TextBox x:Name="StoimTX" Width="180"
-                         FontSize="17"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <TextBlock Text="Max скидка: "
-                           Width="160" FontSize="17" TextWrapping="Wrap"/>
-                    <TextBox x:Name="MaxSkdTX" Width="180"
-                         FontSize="17"/>
-                </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5,10,0,5">
+                            <TextBlock Text="Единица измерения:  " Width="200" FontSize="17"/>
+                        </StackPanel>
 
+                        <StackPanel Orientation="Horizontal" Margin="5,5,0,5">
+                            <TextBlock Text="Стоимость:  " Width="200" FontSize="17"/>
+                        </StackPanel>
 
+                        <StackPanel Orientation="Horizontal" Margin="5,0,0,5">
+                            <TextBlock Text="Размер max скидки:  " Width="200" FontSize="17"/>
+                        </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <TextBlock Text="Производитель: "
-                           Width="160" FontSize="17" TextWrapping="Wrap"/>
-                    <ComboBox x:Name="comboBox2" Style="{StaticResource mainCombo }" DisplayMemberPath="Manufacturer1"  ></ComboBox>
-                </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5,5,0,5">
+                            <TextBlock Text="Производитель:  " Width="200" FontSize="17"/>
+                        </StackPanel>
 
+                        <StackPanel Orientation="Horizontal" Margin="5,10,0,5">
+                            <TextBlock Text="Поставщик:  " Width="200" FontSize="17"/>
+                        </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <TextBlock Text="Поставщик: "
-                           Width="160" FontSize="17" TextWrapping="Wrap"/>
-                    <ComboBox x:Name="comboBox3" Style="{StaticResource mainCombo }" DisplayMemberPath="provider1"  ></ComboBox>
+                        <StackPanel Orientation="Horizontal" Margin="5,10,0,5">
+                            <TextBlock Text="Категория товара:  " Width="200" FontSize="17"/>
+                        </StackPanel>
 
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <TextBlock Text="Описание: "
-                           Width="160" FontSize="17"/>
-                    <TextBox x:Name="descTX" Width="250" Height="30"
-                         FontSize="17"/>
-                </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5,10,0,5">
+                            <TextBlock Text="Скидка:  " Width="200" FontSize="17"/>
+                        </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <TextBlock Text="Изображение: "
-                           Width="160" FontSize="17" TextWrapping="Wrap"/>
-                    <TextBox x:Name="Foto" Width="180"
-                         FontSize="17"/>
-                </StackPanel>
-                <Button x:Name="saveAddBT"
-                    Style="{StaticResource mainBtn}" Content="Сохранить"/>
-            </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5,10,0,5">
+                            <TextBlock Text="Количество на складе:  " Width="200" FontSize="17"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,10,0,5">
+                            <TextBlock Text="Описание:  " Width="200" FontSize="17"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,10,0,5">
+                            <TextBlock Text="Фото:  " Width="200" FontSize="17"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Right" Background="LightCyan">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+                        <StackPanel Orientation="Horizontal" Margin="5,5,5,5">
+                            <TextBox x:Name="articleTX" Width="550" FontSize="17"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,0,0,5">
+                            <TextBox x:Name="titleTX" Width="550" FontSize="17"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                            <ComboBox x:Name="typeEdIzmCB" FontSize="17" Style="{StaticResource mainCombo }">
+                                <ComboBoxItem Content="уп." HorizontalAlignment="Left" />
+                                <ComboBoxItem Content="шт." HorizontalAlignment="Left"/>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,0,5,5">
+                            <TextBox x:Name="StoimTX" Width="550" FontSize="17"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,0,5,5">
+                            <TextBox x:Name="MaxSkdTX" Width="550"  FontSize="17"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                            <ComboBox x:Name="comboBox2"  Style="{StaticResource mainCombo }" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                            <ComboBox x:Name="comboBox3"   Style="{StaticResource mainCombo }" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                            <ComboBox x:Name="comboBox4"   Style="{StaticResource mainCombo }" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,5,5,5">
+                        <TextBox x:Name="scidTX" Width="550" FontSize="17"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,5,5,5">
+                        <TextBox x:Name="colSkladTX" Width="550" FontSize="17"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,5,5,5">
+                            <TextBox x:Name="descTX" Width="550" TextWrapping="Wrap" FontSize="17"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="5,5,5,5">
+                            <TextBlock Name="StringImage" Visibility="Hidden" Text="{Binding Text, ElementName=mainImgName, StringFormat=..//{0} }" />
+                            <Image  Source="{Binding Text, ElementName=StringImage}" Style="{StaticResource imgSource}"/>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Width="300" x:Name="mainImgName"></TextBlock>
+                                <Button x:Name="save1BT" Content="Добавить" Style="{StaticResource mainBtn}" Click="AddIMG"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <Button x:Name="saveAddBT" Style="{StaticResource mainBtn}" HorizontalAlignment="Left"  Content="Сохранить" Click="saveAddBT_Click"/>
+                    </StackPanel>
+                </DockPanel>
+            </DockPanel>
 
         </ScrollViewer>
 

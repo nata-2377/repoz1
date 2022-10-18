@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +23,9 @@ namespace DetMir.Pages
     /// </summary>
     public partial class PageEditNew : Page
     {
+        string mainImg;
+        List<string> imgList = new List<string>();
+
         public PageEditNew(Product product)
         {
             InitializeComponent();
@@ -60,11 +65,11 @@ namespace DetMir.Pages
 
                       if (string.IsNullOrWhiteSpace(StringImage.Text))
                       {
-                          x.photo = "../Resources/logo.png";
+                          x.photo ="../Resources/picture.png";
                       }
                       else
                       {
-                          x.photo = StringImage.Text;
+                          x.photo = "../Resources/" + mainImg;
                       }
 
 
@@ -86,6 +91,23 @@ namespace DetMir.Pages
                 MessageBox.Show(er.Message.ToString());
             }
         }
-         }
+
+        private void AddIMG(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fd = new OpenFileDialog();
+            fd.Filter = "Image | *.png; *.jpg";
+            fd.ShowDialog();
+            mainImgName.Content = fd.SafeFileName;
+            mainImg = fd.SafeFileName;
+            try
+            {
+                File.Copy(fd.FileName, mainImg);
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message.ToString());
+            }
+        }
+    }
     }
 
