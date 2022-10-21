@@ -49,6 +49,20 @@ namespace DetMir.Pages
             StringImage.Text = product.photo;
 
         }
+        private void AddIMG(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fd = new OpenFileDialog();
+            fd.Filter = "Image | *.png; *.jpg";
+            fd.ShowDialog();
+            mainImgName.Text = fd.SafeFileName;
+            mainImg = fd.SafeFileName;
+            StringImage.Text = "../Resources/" + mainImg;
+        }
+
+        private void EdIzmCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Lb1.Content = ((ComboBoxItem)(((ComboBox)sender).SelectedItem)).Content.ToString();
+        }
 
         private void saveAddBT_Click(object sender, RoutedEventArgs e)
         {
@@ -62,7 +76,10 @@ namespace DetMir.Pages
                       x.stoimost = Convert.ToInt32(StoimTX.Text);
                       x.max_discount = Convert.ToInt32(MaxSkdTX.Text);
                       x.description = descTX.Text;
-
+                      x.manufacturer2 = (comboBox2.SelectedItem as Manufacturer).ID;
+                      x.provider2 = (comboBox3.SelectedItem as Provider).ID;
+                      x.unit = Convert.ToString(Lb1.Content);
+                      
                       if (string.IsNullOrWhiteSpace(StringImage.Text))
                       {
                           x.photo ="../Resources/picture.png";
@@ -92,22 +109,7 @@ namespace DetMir.Pages
             }
         }
 
-        private void AddIMG(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog fd = new OpenFileDialog();
-            fd.Filter = "Image | *.png; *.jpg";
-            fd.ShowDialog();
-            mainImgName.Content = fd.SafeFileName;
-            mainImg = fd.SafeFileName;
-            try
-            {
-                File.Copy(fd.FileName, mainImg);
-            }
-            catch (Exception er)
-            {
-                MessageBox.Show(er.Message.ToString());
-            }
-        }
+        
     }
     }
 

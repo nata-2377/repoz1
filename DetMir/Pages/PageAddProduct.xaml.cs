@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
 
 namespace DetMir.Pages
 {
@@ -25,9 +26,14 @@ namespace DetMir.Pages
     {
         string mainImg;
         List<string> imgList = new List<string>();
+
+        
+        
+
         public PageAddProduct()
         {
             InitializeComponent();
+            
             comboBox2.SelectedValuePath = "ID";
             comboBox2.DisplayMemberPath = "Manufacturer1";
             comboBox2.ItemsSource = ConnectOdb.ConObj.Manufacturer.ToList();
@@ -40,23 +46,23 @@ namespace DetMir.Pages
             comboBox4.DisplayMemberPath = "category_name";
             comboBox4.ItemsSource = ConnectOdb.ConObj.ProductCategory.ToList();
 
+
         }
         
+
         private void AddIMG(object sender, RoutedEventArgs e)
         {
             OpenFileDialog fd = new OpenFileDialog();
             fd.Filter = "Image | *.png; *.jpg";
             fd.ShowDialog();
             mainImgName.Text = fd.SafeFileName;
-            mainImg = fd.SafeFileName;
-            try
-            {
-                File.Copy(fd.FileName, mainImg);
-            }
-            catch (Exception er)
-            {
-                MessageBox.Show(er.Message.ToString());
-            }
+            mainImg = fd.SafeFileName;                  
+        }
+
+
+        private void EdIzmCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Lb1.Content = ((ComboBoxItem)(((ComboBox)sender).SelectedItem)).Content.ToString();
         }
 
         private void saveAddBT_Click(object sender, RoutedEventArgs e)
@@ -64,7 +70,7 @@ namespace DetMir.Pages
 
             try
             {
-                Product product = new Product() {
+                   Product product = new Product() {
 
                     article_number = articleTX.Text,
                     name = titleTX.Text,
@@ -73,12 +79,14 @@ namespace DetMir.Pages
                     discount = Convert.ToInt32(scidTX.Text),
                     quantity_in_stock = Convert.ToInt32(colSkladTX.Text),
                     description = descTX.Text,
-                    manufacturer2 = Convert.ToInt32(comboBox2.SelectedItem as Manufacturer),
-                    provider2 = Convert.ToInt32(comboBox2.SelectedItem as Provider),
-                    category_number = Convert.ToInt32(comboBox2.SelectedItem as ProductCategory),
-                    photo = StringImage.Text
+                    photo = StringImage.Text,
+                    unit = Convert.ToString(Lb1.Content),
+                    manufacturer2 = (comboBox2.SelectedItem as Manufacturer).ID,
+                    provider2 = (comboBox3.SelectedItem as Provider).ID,
+                    category_number =(comboBox4.SelectedItem as ProductCategory).category_number
+
+                   };
                 
-            };
                 ConnectOdb.ConObj.Product.Add(product);
                 ConnectOdb.ConObj.SaveChanges();
                 MessageBox.Show("Данные успешно добавлены!","Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -89,7 +97,6 @@ namespace DetMir.Pages
             {
                 MessageBox.Show(er.Message.ToString());
             }
-
-        }
+        }      
     }
 }

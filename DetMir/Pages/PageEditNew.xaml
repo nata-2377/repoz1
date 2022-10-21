@@ -35,13 +35,13 @@
                     <TextBlock Text="Единица измерения:  "
                            Width="160" FontSize="17"/>
 
-                    <ComboBox x:Name="typeEdIzmCB" 
+                    <ComboBox x:Name="typeEdIzmCB" SelectionChanged="EdIzmCB_SelectionChanged"
                           FontSize="17"
                           Style="{StaticResource mainCombo }">
                         <ComboBoxItem Content="уп." HorizontalAlignment="Left" />
                         <ComboBoxItem Content="шт." HorizontalAlignment="Left"/>
                     </ComboBox>
-
+                    <Label x:Name="Lb1" Visibility="Hidden" />
                 </StackPanel>
 
 
@@ -88,17 +88,18 @@
 
                     <TextBlock Text="Изображение: "
                            Width="160" FontSize="17" TextWrapping="Wrap"/>
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Name="StringImage" Visibility="Hidden" Text="{Binding photo, StringFormat=..//{0} }" />
-                        <Image  Source="{Binding Text, ElementName=StringImage}" Style="{StaticResource imgSource}"/>
-                    </StackPanel>
-
-                    <StackPanel Orientation="Vertical">
-                        <Label Margin="3" HorizontalAlignment="Right" Width="100" x:Name="mainImgName"></Label>
-                        <Button Content="Добавить" Click="AddIMG"/>
-                    </StackPanel>
                 </StackPanel>
-                <Button x:Name="saveAddBT"
+
+                <StackPanel Orientation="Horizontal" Margin="5,5,5,5">
+                        <TextBlock Name="StringImage" Visibility="Hidden" Text="{Binding Text, ElementName=mainImgName, StringFormat=../Resources/{0} }" />
+                        <Image  Source="{Binding Text, ElementName=StringImage}" Style="{StaticResource imgSource}"/>
+                         <StackPanel Orientation="Vertical">
+                            <TextBlock Width="300" x:Name="mainImgName" Visibility="Hidden"></TextBlock>
+                            <Button x:Name="save1BT" Content="Добавить" Style="{StaticResource mainBtn}" Click="AddIMG"/>
+                        </StackPanel>
+                    </StackPanel>
+                    
+                    <Button x:Name="saveAddBT"
                     Style="{StaticResource mainBtn}" Content="Сохранить" Click="saveAddBT_Click"/>
             </StackPanel>
 

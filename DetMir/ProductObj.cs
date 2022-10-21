@@ -18,9 +18,9 @@ namespace DetMir
 
         public static decimal max_discount { get; set; }
 
-        public static int manufacturer { get; set; }
+        public static int? manufacturer2 { get; set; }
 
-        public static int provider { get; set; }
+        public static int? provider2 { get; set; }
 
         public static int? category_number { get; set; }
 
