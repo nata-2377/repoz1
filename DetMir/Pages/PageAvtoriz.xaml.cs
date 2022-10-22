@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,7 @@ namespace DetMir.Pages
     /// </summary>
     public partial class PageAvtoriz : Page
     {
+      
         public PageAvtoriz()
         {
             InitializeComponent();
@@ -45,6 +47,10 @@ namespace DetMir.Pages
             {
                 var userObj = ConnectOdb.ConObj.Users.FirstOrDefault(x => x.login == tbLog.Text && x.password == PbPass.Password);
 
+                DataContext = userObj.FIO;                  
+                Lb1.Content = DataContext;
+                              
+
                 if (userObj==null)
                 {
                     MessageBox.Show("Такого пользователя не существует", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -57,8 +63,8 @@ namespace DetMir.Pages
                             MessageBoxResult result = MessageBox.Show("Добро пожаловать. Вы авторизировались как администратор  " + userObj.FIO, "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                             if (result == MessageBoxResult.OK)
                             {
-                                Users users = userObj;
-                                FrameObj.MainFrame.Navigate(new Page3Admin());
+                                                          
+                                 FrameObj.MainFrame.Navigate(new Page3Admin(DataContext)); 
                                    }
                             break;
                         case 2:

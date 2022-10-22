@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DetMir
 {
-    internal class UsersObj
+    public class UsersObj
     {
         public static int ID { get; set; }
         public static string FIO { get; set; }

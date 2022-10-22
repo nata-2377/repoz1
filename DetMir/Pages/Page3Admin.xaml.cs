@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +15,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Threading;
 
 namespace DetMir.Pages
 {
@@ -22,13 +23,17 @@ namespace DetMir.Pages
     /// </summary>
     public partial class Page3Admin : Page
     {
-        
 
-        public Page3Admin()
+       
+        public Page3Admin(object DataContext)
         {
             InitializeComponent();
 
-                 }
+           
+            adminTX.Text = (string)DataContext;
+
+
+        }
 
        
         private void BtnAddProduct_Click(object sender, RoutedEventArgs e)
@@ -39,6 +44,11 @@ namespace DetMir.Pages
         private void BtnProduct_Click(object sender, RoutedEventArgs e)
         {
             FrameObj.MainFrame.Navigate(new PageProduct());
+        }
+
+        private void BtnClient_Click(object sender, RoutedEventArgs e)
+        {
+            FrameObj.MainFrame.Navigate(new PageClientSpisok());
         }
     }
 }

@@ -44,6 +44,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -108,6 +109,9 @@
     </Compile>
     <Compile Include="Pages\PageAvtoriz.xaml.cs">
       <DependentUpon>PageAvtoriz.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageClientSpisok.xaml.cs">
+      <DependentUpon>PageClientSpisok.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageEditNew.xaml.cs">
       <DependentUpon>PageEditNew.xaml</DependentUpon>
@@ -189,6 +193,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PageClientSpisok.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PageEditNew.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -266,6 +274,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\1.jpg" />
     <Resource Include="Resources\picture.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

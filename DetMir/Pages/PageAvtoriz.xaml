@@ -44,5 +44,8 @@
         <Grid Grid.Row="3" Grid.Column="0" >
             <Button x:Name="BtnReg" Content="Регистрация" Style="{StaticResource mainBtn}" Click="BtnReg_Click"/>
         </Grid>
+        <Grid Grid.Row="2" Grid.Column="2" >
+        <Label x:Name="Lb1" Visibility="Visible" />
+        </Grid>
     </Grid>
 </Page>
