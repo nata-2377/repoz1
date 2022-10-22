@@ -62,8 +62,7 @@ namespace DetMir.Pages
                         case 1:
                             MessageBoxResult result = MessageBox.Show("Добро пожаловать. Вы авторизировались как администратор  " + userObj.FIO, "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                             if (result == MessageBoxResult.OK)
-                            {
-                                                          
+                            {                                                   
                                  FrameObj.MainFrame.Navigate(new Page3Admin(DataContext)); 
                                    }
                             break;

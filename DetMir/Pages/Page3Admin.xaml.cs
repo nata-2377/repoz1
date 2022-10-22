@@ -28,11 +28,8 @@ namespace DetMir.Pages
         public Page3Admin(object DataContext)
         {
             InitializeComponent();
-
            
             adminTX.Text = (string)DataContext;
-
-
         }
 
        

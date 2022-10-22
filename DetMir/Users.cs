@@ -22,7 +22,7 @@ namespace DetMir
     
         public int ID { get; set; }
         public string FIO { get; set; }
-        public Nullable<int> role1 { get; set; }
+        public int role1 { get; set; }
         public string login { get; set; }
         public string password { get; set; }
     

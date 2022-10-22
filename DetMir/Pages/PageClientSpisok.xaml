@@ -9,6 +9,19 @@
       Title="PageClientSpisok">
 
     <Grid>
-        
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ComboBox Name ="CmbxUser" Style="{StaticResource mainCombo}" SelectionChanged="CmbxUser_SelectionChanges">
+            </ComboBox>
+            <DataGrid Name ="GridUser" Width="700"  AutoGenerateColumns="False" CanUserAddRows ="False"
+                      CanUserDeleteRows="False" CanUserResizeRows="False" Height="150" CanUserResizeColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ФИО"  Width="*" Binding="{Binding FIO}"/>
+                    <DataGridTextColumn Header="Логин"  Width="*" Binding="{Binding login}"/>
+                    <DataGridTextColumn Header="Пароль"  Width="*" Binding="{Binding password}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            
+            
+        </StackPanel> 
     </Grid>
 </Page>

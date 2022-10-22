@@ -23,6 +23,23 @@ namespace DetMir.Pages
         public PageClientSpisok()
         {
             InitializeComponent();
+            
+            CmbxUser.DisplayMemberPath = "FIO";
+            CmbxUser.SelectedValuePath = "ID";
+            CmbxUser.ItemsSource = ConnectOdb.ConObj.Users.ToList();
+
+            GridUser.IsReadOnly = true;
+
+            GridUser.ItemsSource = ConnectOdb.ConObj.Users.Where(x => x.ID == UsersObj.ID).ToList();
+
+
+        }
+
+        private void CmbxUser_SelectionChanges(object sender, SelectionChangedEventArgs e)
+        {
+            GridUser.ItemsSource = null;
+            int SelectUser = Convert.ToInt32(CmbxUser.SelectedValue);
+            GridUser.ItemsSource = ConnectOdb.ConObj.Users.Where(x => x.ID == SelectUser).ToList();
         }
     }
 }

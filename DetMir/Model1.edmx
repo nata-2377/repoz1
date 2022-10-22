@@ -71,7 +71,7 @@
           <Property Name="discount" Type="real" />
           <Property Name="quantity_in_stock" Type="int" />
           <Property Name="description" Type="nvarchar(max)" />
-          <Property Name="photo" Type="nvarchar" MaxLength="50" />
+          <Property Name="photo" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="ProductCategory">
           <Key>
@@ -110,7 +110,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FIO" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="role1" Type="int" />
+          <Property Name="role1" Type="int" Nullable="false" />
           <Property Name="login" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
@@ -232,7 +232,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Users_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
@@ -393,7 +393,7 @@
           <Property Name="discount" Type="Single" />
           <Property Name="quantity_in_stock" Type="Int32" />
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Product_Manufacturer" FromRole="Product" ToRole="Manufacturer" />
           <NavigationProperty Name="OrderComposition" Relationship="Self.FK_OrderComposition_Product" FromRole="Product" ToRole="OrderComposition" />
           <NavigationProperty Name="Placement" Relationship="Self.FK_Placement_Product" FromRole="Product" ToRole="Placement" />
@@ -440,7 +440,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="role1" Type="Int32" />
+          <Property Name="role1" Type="Int32" Nullable="false" />
           <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_Users" FromRole="Users" ToRole="Order" />
@@ -577,7 +577,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Users_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
