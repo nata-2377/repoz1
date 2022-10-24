@@ -23,10 +23,11 @@ namespace DetMir.Pages
         public PageClientSpisok()
         {
             InitializeComponent();
-            
-            CmbxUser.DisplayMemberPath = "FIO";
-            CmbxUser.SelectedValuePath = "ID";
-            CmbxUser.ItemsSource = ConnectOdb.ConObj.Users.ToList();
+
+                CmbxUser.DisplayMemberPath = "FIO";
+                CmbxUser.SelectedValuePath = "ID";
+                CmbxUser.ItemsSource = ConnectOdb.ConObj.Users.Where(x => x.role1 == 3).ToList();
+
 
             GridUser.IsReadOnly = true;
 
@@ -36,7 +37,7 @@ namespace DetMir.Pages
         }
 
         private void CmbxUser_SelectionChanges(object sender, SelectionChangedEventArgs e)
-        {
+        {           
             GridUser.ItemsSource = null;
             int SelectUser = Convert.ToInt32(CmbxUser.SelectedValue);
             GridUser.ItemsSource = ConnectOdb.ConObj.Users.Where(x => x.ID == SelectUser).ToList();
