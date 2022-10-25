@@ -22,7 +22,7 @@ namespace DetMir.Pages
     /// </summary>
     public partial class PageProduct : Page
     {
-      
+       
 
         public PageProduct()
         {
@@ -32,6 +32,9 @@ namespace DetMir.Pages
             timer.Tick += UpdateData;
             timer.Start();
 
+            ConnectOdb.ConObj.Provider.Load();
+            gridList.ItemsSource = ConnectOdb.ConObj.Product.ToList();
+
            
         }
         public void UpdateData (object sender, object e)
@@ -40,12 +43,22 @@ namespace DetMir.Pages
             ListProduct.ItemsSource = ConnectOdb.ConObj.Product.Where(x => x.name.StartsWith(TxtSearch.Text)).ToList();
 
             ConnectOdb.ConObj.Manufacturer.Load();
-          
-        }
+                    }
+       
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
             FrameObj.MainFrame.Navigate(new PageEditNew((sender as Button).DataContext as Product));
+        }
+
+        private void RbUp_IsEnableChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            gridList.ItemsSource = ConnectOdb.ConObj.Product.OrderBy(x => x.name).ToList();
+        }
+
+        private void RbDown_IsEnableChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            gridList.ItemsSource = ConnectOdb.ConObj.Product.OrderByDescending(x => x.name).ToList();
         }
     }
 }

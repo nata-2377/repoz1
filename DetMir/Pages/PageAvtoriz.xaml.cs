@@ -48,7 +48,7 @@ namespace DetMir.Pages
                 var userObj = ConnectOdb.ConObj.Users.FirstOrDefault(x => x.login == tbLog.Text && x.password == PbPass.Password);
 
                 DataContext = userObj.FIO;                  
-                Lb1.Content = DataContext;
+                
                               
 
                 if (userObj==null)

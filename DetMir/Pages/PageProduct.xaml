@@ -11,8 +11,11 @@
     <Grid>
         <ScrollViewer>
             <StackPanel Orientation="Vertical">
-                <TextBox Name="TxtSearch"  Width="500" Height="30" Margin="5"/>
-                <ListBox Name="ListProduct" Background="Transparent" Width="750" Height="250" BorderBrush="Transparent">
+                <DockPanel DockPanel.Dock="Right" Background="Azure">
+                    <TextBlock Text="Найти" HorizontalAlignment="Right" Margin="40,5,0,5"  Width="50" FontSize="17"/>
+                <TextBox Name="TxtSearch"  Width="600" Height="30" Margin="5"/>
+                    </DockPanel>
+                <ListBox Name="ListProduct" Background="Transparent" Width="750" Height="250" BorderBrush="Transparent" d:ItemsSource="{d:SampleData ItemCount=5}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <ListBoxItem BorderBrush="Black" Style="{StaticResource LblRed}"  Background="Azure"
@@ -69,5 +72,25 @@
                 </ListBox>
             </StackPanel>
         </ScrollViewer>
+     
+            <StackPanel VerticalAlignment="Bottom" Height="150" Background="Azure">
+
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <RadioButton Name ="RbUp" Content="По возрастанию" Margin="5,5,10,5" IsMouseCapturedChanged="RbUp_IsEnableChanged"/>
+                    <RadioButton Name ="RbDown" Content="По убыванию" Margin="5,5,10,5" IsMouseCapturedChanged="RbDown_IsEnableChanged" />
+                </StackPanel>
+
+            <DataGrid Name="gridList" IsReadOnly="True" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Артикул" Binding ="{Binding article_number}" Width="*" />
+                        <DataGridTextColumn Header="Наименование" Binding ="{Binding name}" Width="*" />
+                        <DataGridTextColumn Header="Стоимость" Binding ="{Binding stoimost}"  Width="*" />
+                        <DataGridTextColumn Header="Скидка" Binding ="{Binding discount}" Width="*"  />
+                        <DataGridTextColumn Header="Количество на складе" Binding ="{Binding quantity_in_stock}" Width="*" />
+                        <DataGridTextColumn Header="Поставщик" Binding ="{Binding Provider.provider1}" Width="*" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+     
     </Grid>
 </Page>
