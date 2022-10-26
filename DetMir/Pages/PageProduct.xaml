@@ -73,14 +73,16 @@
             </StackPanel>
         </ScrollViewer>
      
-            <StackPanel VerticalAlignment="Bottom" Height="150" Background="Azure">
+            <StackPanel VerticalAlignment="Bottom" Height="100" Background="Azure">
 
                 <StackPanel Orientation="Horizontal" Margin="5">
                     <RadioButton Name ="RbUp" Content="По возрастанию" Margin="5,5,10,5" IsMouseCapturedChanged="RbUp_IsEnableChanged"/>
                     <RadioButton Name ="RbDown" Content="По убыванию" Margin="5,5,10,5" IsMouseCapturedChanged="RbDown_IsEnableChanged" />
                 </StackPanel>
 
-            <DataGrid Name="gridList" IsReadOnly="True" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" >
+            <DataGrid Name="gridList" IsReadOnly="True" AutoGenerateColumns="False" 
+                      Height="100" MaxWidth="750"
+                      ScrollViewer.CanContentScroll="True" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Артикул" Binding ="{Binding article_number}" Width="*" />
                         <DataGridTextColumn Header="Наименование" Binding ="{Binding name}" Width="*" />
