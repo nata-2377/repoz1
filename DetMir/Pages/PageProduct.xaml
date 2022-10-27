@@ -15,7 +15,7 @@
                     <TextBlock Text="Найти" HorizontalAlignment="Right" Margin="40,5,0,5"  Width="50" FontSize="17"/>
                 <TextBox Name="TxtSearch"  Width="600" Height="30" Margin="5"/>
                     </DockPanel>
-                <ListBox Name="ListProduct" Background="Transparent" Width="750" Height="250" BorderBrush="Transparent" d:ItemsSource="{d:SampleData ItemCount=5}">
+                <ListBox Name="ListProduct" Background="Transparent" Width="750" Height="250" BorderBrush="Transparent" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <ListBoxItem BorderBrush="Black" Style="{StaticResource LblRed}"  Background="Azure"
@@ -39,7 +39,7 @@
                                   
                                     
                                         <StackPanel  Orientation="Horizontal">
-                                            <TextBlock Text="Описание: " FontWeight="Bold" Style="{StaticResource prdctTB}"/>
+                                          <TextBlock Text="Описание: " FontWeight="Bold" Style="{StaticResource prdctTB}"/>
                                             <TextBlock Text="{Binding description}" Name="TxtDescrProduct"  Style = "{StaticResource prdctTB}" />
                                         </StackPanel>
 

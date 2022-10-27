@@ -1,4 +1,5 @@
 ﻿using System;
+using ClassLibrary1;
 using System.Collections.Generic;
 using System.Data.Linq;
 using System.Linq;
@@ -26,7 +27,8 @@ namespace DetMir.Pages
         public PageAvtoriz()
         {
             InitializeComponent();
-                    
+            Class1 param = new Class1();
+            param.Method();
         }
 
         public static System.Windows.MessageBoxResult Show(string messageBoxText,
@@ -48,9 +50,7 @@ namespace DetMir.Pages
                 var userObj = ConnectOdb.ConObj.Users.FirstOrDefault(x => x.login == tbLog.Text && x.password == PbPass.Password);
 
                 DataContext = userObj.FIO;                  
-                
-                              
-
+   
                 if (userObj==null)
                 {
                     MessageBox.Show("Такого пользователя не существует", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -63,8 +63,7 @@ namespace DetMir.Pages
                             MessageBoxResult result = MessageBox.Show("Добро пожаловать. Вы авторизировались как администратор  " + userObj.FIO, "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                             if (result == MessageBoxResult.OK)
                             {
-                                                          
-                                 FrameObj.MainFrame.Navigate(new Page3Admin(DataContext)); 
+                               FrameObj.MainFrame.Navigate(new Page3Admin(DataContext)); 
                                    }
                             break;
                         case 2:
@@ -75,7 +74,7 @@ namespace DetMir.Pages
                         case 3:
                             MessageBoxResult result2 = MessageBox.Show("Добро пожаловать. Вы авторизировались как пользователь  " + userObj.FIO, "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                             if (result2 == MessageBoxResult.OK)
-                                FrameObj.MainFrame.Navigate(new Page2Client());
+                            { FrameObj.MainFrame.Navigate(new Page2Client(DataContext)); }
                             break;
                         default:
                             MessageBox.Show("Данные не обнаружены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);

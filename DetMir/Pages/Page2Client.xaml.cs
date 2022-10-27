@@ -20,9 +20,12 @@ namespace DetMir.Pages
     /// </summary>
     public partial class Page2Client : Page
     {
-        public Page2Client()
+        public Page2Client(object DataContext)
         {
             InitializeComponent();
+
+            clientTX.Text = "Вы вошли как клиент " + (string)DataContext;
+
         }
     }
 }

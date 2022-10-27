@@ -9,6 +9,31 @@
       Title="Page2Client">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="0.06*"></RowDefinition>
+            <RowDefinition Height="0.06*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.02*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image Source="/Resources/22.jpg" HorizontalAlignment="Right" VerticalAlignment="Center" Height="20"  Grid.Column="0" />
+            <TextBlock Grid.Column="1"  x:Name="clientTX" Width="300"  HorizontalAlignment="Left" FontSize="13"/>
+            <TextBlock Text="Показано записей  " Background="Azure" Grid.Column="2" />
+        </Grid>
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+           
         
+        </Grid>
+
+        <DockPanel  Grid.Row="2" >
+
+
+        </DockPanel>
     </Grid>
 </Page>
