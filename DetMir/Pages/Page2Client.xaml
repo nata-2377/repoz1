@@ -10,11 +10,11 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="0.08*"></RowDefinition>
+            <RowDefinition Height="0.08*"></RowDefinition>
             <RowDefinition Height="0.1*"></RowDefinition>
-            <RowDefinition Height="0.06*"></RowDefinition>
-            <RowDefinition Height="0.06*"></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="0.02*"></RowDefinition>
+            <RowDefinition Height="0.3*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
@@ -22,18 +22,119 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Image Source="/Resources/22.jpg" HorizontalAlignment="Right" VerticalAlignment="Center" Height="20"  Grid.Column="0" />
             <TextBlock Grid.Column="1"  x:Name="clientTX" Width="300"  HorizontalAlignment="Left" FontSize="13"/>
-            <TextBlock Text="Показано записей  " Background="Azure" Grid.Column="2" />
+            <TextBlock x:Name="rowCount" Background="Azure" Grid.Column="2" />
         </Grid>
-        <Grid Grid.Row="1" Grid.ColumnSpan="2">
-           
-        
+        <Grid Grid.Row="1" Grid.ColumnSpan="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Поиск" HorizontalAlignment="Center"  Grid.Column="0" />
+            <TextBlock Text="Сортировка" HorizontalAlignment="Center"  Grid.Column="1" />
+            <TextBlock Text="Фильтрация" HorizontalAlignment="Center"  Grid.Column="2" />
         </Grid>
+        <Grid Grid.Row="2" Grid.ColumnSpan="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBox Name="PoiskTB" TextChanged="PoiskTB_TextChanged" Grid.Column="0" Margin="5,0,5,0"/>
+            <ComboBox  x:Name="sortCB" SelectionChanged="sortCB_SelectionChanged" Grid.Column="1" Margin="5,0,5,0">
+                <ComboBoxItem>по возрастанию стоимости</ComboBoxItem>
+                <ComboBoxItem>по убыванию стоимости</ComboBoxItem>
+            </ComboBox>
 
-        <DockPanel  Grid.Row="2" >
+            <ComboBox x:Name="filtCB" SelectionChanged="filtCB_SelectionChanged" Grid.Column="2" Margin="5,0,5,0">
+                <ComboBoxItem>Все диапазоны</ComboBoxItem>
+                <ComboBoxItem>Скидка: от 0 до 10 % </ComboBoxItem>
+                <ComboBoxItem>Скидка: от 11 до 14 % </ComboBoxItem>
+                <ComboBoxItem>Скидка: от 15 % и более  </ComboBoxItem>
+            </ComboBox>
+        </Grid>
+        <Grid Grid.Row="3" >
+            <ScrollViewer>
+            <StackPanel Orientation="Vertical">
+                <ListBox Name="ListProduct" Background="Transparent" Width="750" Height="190" BorderBrush="Transparent" >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <ListBoxItem BorderBrush="Black" Style="{StaticResource LblRed}"  Background="Azure"
+                                     Width="700" Height="170">
+                                
+                                <ListBoxItem.Resources>
+                                    <Style TargetType="ListBoxItem" x:Key="LblRed"></Style>
+
+                                </ListBoxItem.Resources>
+
+                                   
+                                <StackPanel Orientation="Horizontal" Margin="5,5,5,5">
+
+                                        <StackPanel Orientation="Vertical" Background="YellowGreen" Margin="5,5,5,5" Width="150" Height="150">
+                                            <TextBlock Name="StringImage" Visibility="Hidden" Text="{Binding photo, StringFormat=..//{0} }"  />
+                                        <Image  Source="{Binding Text, ElementName=StringImage}" Style="{StaticResource imgSource}" />
+                                    </StackPanel>
 
 
-        </DockPanel>
+                                        <StackPanel Orientation="Vertical" Margin="5,5,5,5" Width="350" Height="150">
+                                        <StackPanel  Orientation="Horizontal">
+                                            <TextBlock Text="Наименование товара: " FontWeight="Bold" Style="{StaticResource prdctTB}"/>
+                                            <TextBlock Text="{Binding name}" Name="TxtNameProduct" Style = "{StaticResource prdctTB}" />
+                                        </StackPanel>
+
+
+                                        <StackPanel  Orientation="Horizontal">
+                                            <TextBlock Text="Описание товара: " FontWeight="Bold" Style="{StaticResource prdctTB}"/>
+                                                <TextBlock Text="{Binding description}" Name="TxtDescrProduct" Width="200" Style = "{StaticResource prdctTB}" 
+                         FontSize="13"/>
+                                        </StackPanel>
+
+                                        <StackPanel  Orientation="Horizontal">
+                                            <TextBlock Text="Производитель: " FontWeight="Bold" Style="{StaticResource prdctTB}"/>
+                                            <TextBlock Text="{Binding  Path=Manufacturer.Manufacturer1}" Name="TxtManufProduct" Style = "{StaticResource prdctTB}" />
+                                        </StackPanel>
+
+                                        <StackPanel  Orientation="Horizontal">
+                                            <TextBlock Text="Цена: " FontWeight="Bold" Style="{StaticResource prdctTB}"/>
+                                            <TextBlock Text="{Binding stoimost}" Name="TxtStoimProduct"  Style = "{StaticResource prdctTB}" />
+                                            <TextBlock Text="рублей"  Style="{StaticResource prdctTB}"/>
+                                        </StackPanel>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Vertical" Margin="5,5,5,5" Width="100" Height="100">
+                                        <StackPanel  Orientation="Horizontal">
+                                            <TextBlock Text="Размер скидки: " FontWeight="Bold" Style="{StaticResource prdctTB}"/>
+                                            </StackPanel>
+                                                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <TextBlock Text="{Binding discount}" Name="TxtSkidkaProduct"  Style = "{StaticResource prdctTB}" />
+                                            <TextBlock Text="%"  Style="{StaticResource prdctTB}"/>
+                                                </StackPanel>
+                                            
+                                            </StackPanel>
+                                        
+                                </StackPanel>
+                            </ListBoxItem>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </ScrollViewer>
+
+        </Grid>
+        <Grid Grid.Row="4" >
+            <DataGrid Name="gridList" IsReadOnly="True" AutoGenerateColumns="False" 
+                      Height="100" MaxWidth="750"
+                      ScrollViewer.CanContentScroll="True" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Артикул" Binding ="{Binding article_number}" Width="*" />
+                <DataGridTextColumn Header="Наименование" Binding ="{Binding name}" Width="*" />
+                <DataGridTextColumn Header="Стоимость" Binding ="{Binding stoimost}"  Width="*" />
+                <DataGridTextColumn Header="Скидка" Binding ="{Binding discount}" Width="*"  />
+                <DataGridTextColumn Header="Количество на складе" Binding ="{Binding quantity_in_stock}" Width="*" />
+                <DataGridTextColumn Header="Поставщик" Binding ="{Binding Provider.provider1}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        </Grid>
     </Grid>
 </Page>

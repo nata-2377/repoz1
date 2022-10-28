@@ -1,5 +1,5 @@
 ﻿using System;
-using ClassLibrary1;
+
 using System.Collections.Generic;
 using System.Data.Linq;
 using System.Linq;
@@ -27,8 +27,7 @@ namespace DetMir.Pages
         public PageAvtoriz()
         {
             InitializeComponent();
-            Class1 param = new Class1();
-            param.Method();
+           
         }
 
         public static System.Windows.MessageBoxResult Show(string messageBoxText,
